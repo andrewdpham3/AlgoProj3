@@ -119,6 +119,8 @@ bool place_in_hash_tables (char *s) {
       // IN THE OTHER TABLE
       // WRITE THE CODE TO SET index TO INDICATE THE OTHER TABLE
       // WRITE THE CODE TO CALCULATE IN pos THE HASH VALUE FOR temp_s
+			
+			
 			counter ++;
 		}
 	}
