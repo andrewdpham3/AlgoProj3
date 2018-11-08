@@ -35,7 +35,7 @@ int main() {
 		strcpy(t[i][1], null_st);
 	}
 
-	char filename[255] = {i,n,5,.,t,x,t};
+	char filename[255] = "int5.txt";
 
   // display the header
 	cout << endl << "CPSC 335-x - Programming Assignment #4: ";
