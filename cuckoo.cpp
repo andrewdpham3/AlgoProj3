@@ -13,7 +13,7 @@ using namespace std;
 // cuckoo tables' size                                                        
 const int tablesize = 17;
 // combine the two 1-dimensional table into one 2-dimensional table           
-char  t[tablesize][2][255];
+char t[tablesize][2][255];
 
 // compute the hash functions
 size_t f(char*, size_t);
@@ -29,7 +29,7 @@ int main() {
 	size_t i, len;
 	bool placed;
 
-// clear the tables
+  // clear the tables
 	for(i=0; i< tablesize; i++) {
 		strcpy(t[i][0], null_st);
 		strcpy(t[i][1], null_st);
@@ -37,11 +37,11 @@ int main() {
 
 	char filename[255] = "";
 
-// display the header
+  // display the header
 	cout << endl << "CPSC 335-x - Programming Assignment #4: ";
 	cout << "Cuckoo Hashing algorithm" << endl;
 
-// read the strings from a file
+  // read the strings from a file
 	cout << "Input the file name (no spaces)!" << endl;
 	cin >> filename;
 
@@ -51,12 +51,12 @@ int main() {
 	{
 /* read line by line from the file */
 		while ( fgets ( s, 255, file ) != NULL ) {
-// place null character at the end of the line instead of <return>
+      // place null character at the end of the line instead of <return>
 			len = strlen(s);
 			s[len-2]='\0';
-// insert the string in the cuckoo table
+      // insert the string in the cuckoo table
 			placed = place_in_hash_tables(s);
-// check whether the placement was successful
+      // check whether the placement was successful
 			if (!placed) {
 				cout << "Placement has failed" << endl;
 				return -1;
@@ -94,7 +94,7 @@ bool place_in_hash_tables (char *s) {
 	while((!placed ) && (counter < 2*tablesize)) {
 
 		if (strcmp(t[pos][index], "") == 0 ) {
-// the entry at index <pos> in the <index> hash table is available so store the string <temp_s> there
+      // the entry at index <pos> in the <index> hash table is available so store the string <temp_s> there
 			cout << "String <" << temp_s << "> will be placed at";
 			cout  << " t[" << pos <<"][" << index << "]" << endl;
 			strcpy(t[pos][index], temp_s);
@@ -102,19 +102,19 @@ bool place_in_hash_tables (char *s) {
 			return placed;
 		}
 		else {
-// the entry at index <pos> in the <index> hash table is not available so 
-// obtain the string stored over there in variable <temp> and store the string <temp_s> there
-// now the string <temp> needs to be placed in the other table
+      // the entry at index <pos> in the <index> hash table is not available so 
+      // obtain the string stored over there in variable <temp> and store the string <temp_s> there
+      // now the string <temp> needs to be placed in the other table
 			cout << "String <" << temp_s << "> will be placed at" << " t[" << pos;
 			cout <<"][" << index << "]" << " replacing <" << t[pos][index] << ">";
 			cout << endl;
-// YOU NEED TO WRITE THE CODE TO STORE IN temp THE STRING STORED AT
-// t[pos][index] AND STORE IN t[pos][index] THE STRING temp_s
+      // YOU NEED TO WRITE THE CODE TO STORE IN temp THE STRING STORED AT
+      // t[pos][index] AND STORE IN t[pos][index] THE STRING temp_s
 			strcpy(temp_s, temp);
-// NOW temp_s CONTAINING THE EVICTED STRING NEEDS TO BE STORED 
-// IN THE OTHER TABLE
-// WRITE THE CODE TO SET index TO INDICATE THE OTHER TABLE
-// WRITE THE CODE TO CALCULATE IN pos THE HASH VALUE FOR temp_s
+      // NOW temp_s CONTAINING THE EVICTED STRING NEEDS TO BE STORED 
+      // IN THE OTHER TABLE
+      // WRITE THE CODE TO SET index TO INDICATE THE OTHER TABLE
+      // WRITE THE CODE TO CALCULATE IN pos THE HASH VALUE FOR temp_s
 			counter ++;
 		}
 	}
@@ -158,8 +158,8 @@ size_t f(char *s, size_t index) {
 		return val;
 	}
 	else {
-// YOU NEED TO IMPLEMENT THE STEPS TO CALCULATE THE SECOND 
-// HASH FUNCTION
+    // YOU NEED TO IMPLEMENT THE STEPS TO CALCULATE THE SECOND 
+    // HASH FUNCTION
 		val = val % tablesize;
 		return val;
 	}
