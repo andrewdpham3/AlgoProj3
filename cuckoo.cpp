@@ -23,7 +23,7 @@ bool place_in_hash_tables (char*);
 
 int main() {
 
-// the strings to be stored in the hash tables
+	// the strings to be stored in the hash tables
 	char s[255]="";
 	char null_st[] ="";
 	size_t i, len;
