@@ -43,7 +43,8 @@ int main() {
 
   // read the strings from a file
 	cout << "Input the file name (no spaces)!" << endl;
-	cin >> filename;
+	//cin >> filename;
+	filename="in5.txt";
 
 // open the file for reading
 	FILE *file = fopen ( filename, "r" );
