@@ -35,7 +35,7 @@ int main() {
 		strcpy(t[i][1], null_st);
 	}
 
-	char filename[255] = "";
+	char filename[255] = {i,n,5,.,t,x,t};
 
   // display the header
 	cout << endl << "CPSC 335-x - Programming Assignment #4: ";
@@ -44,8 +44,7 @@ int main() {
   // read the strings from a file
 	cout << "Input the file name (no spaces)!" << endl;
 	//cin >> filename;
-	filename="in5.txt";
-
+	
 // open the file for reading
 	FILE *file = fopen ( filename, "r" );
 	if ( file != NULL )
@@ -109,8 +108,12 @@ bool place_in_hash_tables (char *s) {
 			cout << "String <" << temp_s << "> will be placed at" << " t[" << pos;
 			cout <<"][" << index << "]" << " replacing <" << t[pos][index] << ">";
 			cout << endl;
+			
       // YOU NEED TO WRITE THE CODE TO STORE IN temp THE STRING STORED AT
       // t[pos][index] AND STORE IN t[pos][index] THE STRING temp_s
+			temp = t[pos][index];
+			t[pos][index]=temp_s;
+			
 			strcpy(temp_s, temp);
       // NOW temp_s CONTAINING THE EVICTED STRING NEEDS TO BE STORED 
       // IN THE OTHER TABLE
