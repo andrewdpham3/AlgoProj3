@@ -1,9 +1,3 @@
-# project-3-starter
-
-Project 3: hashing
-
-Group members:
-
+Implementation of Cuckoo Hashing 
+Created for CPSC 335, Algorithm Engineering, CSUF
 Andrew Pham andrewpham@csu.fullerton.edu
-
-Cloned for use of Travis
